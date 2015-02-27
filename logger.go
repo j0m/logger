@@ -1,6 +1,8 @@
 package logger
 
 import (
+	"fmt"
+	"io"
 	"log"
 	"os"
 )
@@ -67,14 +69,14 @@ func Fatal(v ...interface{}) {
 	if logLevel > 0 {
 		log.Fatal(v)
 	}
-
+	
 	os.Exit(1)
 }
 
 // Fatalf is equivalent to Printf() followed by a call to os.Exit(1).
 func Fatalf(format string, v ...interface{}) {
 	if logLevel > 0 {
-		std.Fatal(format, v)
+		log.Fatal(format, v)
 	}
 
 	os.Exit(1)
@@ -95,6 +97,7 @@ func Panic(v ...interface{}) {
 		log.Panic(v)
 	}
 
+	s := fmt.Sprintln(v...)
 	panic(s)
 }
 
@@ -104,6 +107,7 @@ func Panicf(format string, v ...interface{}) {
 		log.Panicf(format, v)
 	}
 
+	s := fmt.Sprintln(v...)
 	panic(s)
 }
 
@@ -113,5 +117,6 @@ func Panicln(v ...interface{}) {
 		log.Panicln(v)
 	}
 
+	s := fmt.Sprintln(v...)
 	panic(s)
 }
