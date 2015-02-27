@@ -67,7 +67,7 @@ func Fatal(v ...interface{}) {
 	if logLevel > 0 {
 		log.Fatal(v)
 	}
-	
+
 	os.Exit(1)
 }
 
