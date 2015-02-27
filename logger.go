@@ -7,9 +7,9 @@ import (
 	"os"
 )
 
-var logLevel uint = 0
+var logLevel int = 0
 
-func SetLogLevel(l uint) {
+func SetLogLevel(l int) {
 	logLevel = l
 }
 
