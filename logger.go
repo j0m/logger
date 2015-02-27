@@ -52,7 +52,6 @@ func Print(v ...interface{}) {
 // Arguments are handled in the manner of fmt.Printf.
 func Printf(format string, v ...interface{}) {
 	if logLevel > 0 {
-		log.Printf("NARF\n")
 		log.Printf(format, v)
 	}
 }
